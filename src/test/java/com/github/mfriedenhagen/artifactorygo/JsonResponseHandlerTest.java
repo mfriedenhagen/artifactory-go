@@ -16,7 +16,7 @@
 package com.github.mfriedenhagen.artifactorygo;
 
 import com.github.mfriedenhagen.artifactorygo.model.ArtifactoryStorage;
-import com.github.mfriedenhagen.artifactorygo.model.SearchResults;
+import com.github.mfriedenhagen.artifactorygo.model.ArtifactorySearchResults;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -34,7 +34,7 @@ import static org.mockito.Mockito.when;
  */
 public class JsonResponseHandlerTest {
 
-    final JsonResponseHandler<SearchResults> sut = new JsonResponseHandler<SearchResults>(SearchResults.class);
+    final JsonResponseHandler<ArtifactorySearchResults> sut = new JsonResponseHandler<ArtifactorySearchResults>(ArtifactorySearchResults.class);
     final HttpResponse mockedResponse = mock(HttpResponse.class);
 
     /**
@@ -44,6 +44,7 @@ public class JsonResponseHandlerTest {
     public void testHandleResponseBadStatusCode() throws Exception {
         final BasicStatusLine statusLine = new BasicStatusLine(HttpVersion.HTTP_1_1, HttpStatus.SC_MULTIPLE_CHOICES, "Multiple Choices");
         when(mockedResponse.getStatusLine()).thenReturn(statusLine);
+
         sut.handleResponse(mockedResponse);
     }
 
@@ -57,13 +58,16 @@ public class JsonResponseHandlerTest {
         final HttpEntity mockedEntity = mock(HttpEntity.class);
         when(mockedEntity.getContent()).thenReturn(JsonResponseHandlerTest.class.getResourceAsStream("/junit.json"));
         when(mockedResponse.getEntity()).thenReturn(mockedEntity);
-        final SearchResults checksumResults = sut.handleResponse(mockedResponse);
-        final ArtifactoryStorage checksumResult = checksumResults.results.get(0);
+
+        final ArtifactorySearchResults searchResults = sut.handleResponse(mockedResponse);
+        final ArtifactoryStorage searchResult = searchResults.results.get(0);
+
+        assertEquals(4, searchResults.results.size());
         assertEquals(
                 "http://localhost:8081/artifactory/api/storage/repo1-cache/junit/junit/4.11/junit-4.11.pom",
-                checksumResult.uri.toString());
+                searchResult.uri.toString());
         assertEquals(
                 "http://localhost:8081/artifactory/repo1-cache/junit/junit/4.11/junit-4.11.pom",
-                checksumResult.downloadUri.toString());
+                searchResult.downloadUri.toString());
     }
 }

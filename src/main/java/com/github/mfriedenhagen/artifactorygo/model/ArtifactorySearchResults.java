@@ -21,7 +21,7 @@ import java.util.List;
  *
  * @author Mirko Friedenhagen <mirko.friedenhagen@1und1.de>
  */
-public class SearchResults {
+public class ArtifactorySearchResults {
 
     public List<ArtifactoryStorage> results;
 }
