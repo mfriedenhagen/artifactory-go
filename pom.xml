@@ -28,9 +28,13 @@
     <artifactId>artifactory-go</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <!-- TODO project name  -->
     <name>Artifactory :: Go</name>
     <description>WAR which either redirect directly or show a list of found artifacts.</description>
+    <scm>
+        <connection>scm:git:git://github.com/mfriedenhagen/artifactory-go.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/mfriedenhagen/artifactory-go.git</developerConnection>
+        <url>https://github.com/mfriedenhagen/artifactory-go</url>
+    </scm>
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
