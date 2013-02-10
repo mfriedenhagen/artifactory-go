@@ -16,7 +16,6 @@
 package com.github.mfriedenhagen.artifactorygo;
 
 import com.github.mfriedenhagen.artifactorygo.model.ArtifactoryStorage;
-import com.github.mfriedenhagen.artifactorygo.model.SearchResult;
 import com.github.mfriedenhagen.artifactorygo.model.SearchResults;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
