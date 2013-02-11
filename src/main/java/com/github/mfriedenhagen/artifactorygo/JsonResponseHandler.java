@@ -27,13 +27,19 @@ import org.apache.http.util.EntityUtils;
 import org.joda.time.DateTime;
 
 /**
+ * {@link ResponseHandler} which deserializes the given JSON response.
  *
+ * @param <T> type of the deserialized answer
  * @author Mirko Friedenhagen
  */
 public class JsonResponseHandler<T> extends StatusCodeCodeLessThanScMultipleChoicesResponseHandler<T> {
 
+    /** clazz for deserialization. */
     private final Class<T> clazz;
 
+    /**
+     * @param clazz for deserialization.
+     */
     public JsonResponseHandler(final Class<T> clazz) {
         this.clazz = clazz;
     }
