@@ -21,13 +21,15 @@ import java.util.regex.Pattern;
 
 /**
  * <a href="http://en.wikipedia.org/wiki/Md5">MD5</a> Holder class.
- * 
+ *
+ * This class checks the validity of the string given for construction.
+ *
  * @author Mirko Friedenhagen
  */
-public class MD5 {
+public final class MD5 {
 
-    private final static int LEN_OF_MD5 = 32;
-    final static Pattern PATTERN = Pattern.compile("[a-fA-F0-9]{32}");
+    private static final int LEN_OF_MD5 = 32;
+    static final Pattern PATTERN = Pattern.compile("[a-fA-F0-9]{32}");
     private final String md5;
 
     private MD5(String md5) {

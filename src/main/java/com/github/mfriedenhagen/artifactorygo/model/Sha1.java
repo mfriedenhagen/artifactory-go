@@ -21,13 +21,15 @@ import java.util.regex.Pattern;
 
 /**
  * <a href="http://en.wikipedia.org/wiki/SHA-1">SHA-1</a> Holder class.
- * 
+ *
+ * This class checks the validity of the string given for construction.
+ *
  * @author Mirko Friedenhagen
  */
-public class Sha1 {
+public final class Sha1 {
 
-    private final static int LEN_OF_SHA1 = 40;
-    final static Pattern PATTERN = Pattern.compile("[a-fA-F0-9]{40}");
+    private static final int LEN_OF_SHA1 = 40;
+    static final Pattern PATTERN = Pattern.compile("[a-fA-F0-9]{40}");
     private final String sha1;
 
     private Sha1(String sha1) {
