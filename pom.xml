@@ -61,12 +61,22 @@
             <artifactId>wicket-core</artifactId>
             <version>${wicket.version}</version>
         </dependency>
-        <!-- OPTIONAL DEPENDENCY -->
+        <dependency>
+            <groupId>org.apache.wicket</groupId>
+            <artifactId>wicket-util</artifactId>
+            <version>${wicket.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.wicket</groupId>
+            <artifactId>wicket-request</artifactId>
+            <version>${wicket.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.apache.wicket</groupId>
             <artifactId>wicket-extensions</artifactId>
             <version>${wicket.version}</version>
         </dependency>
+        <!-- OPTIONAL DEPENDENCY -->
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
@@ -96,7 +106,6 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <scope>runtime</scope>
         </dependency>
 
         <!--  JUNIT DEPENDENCY FOR TESTING -->
