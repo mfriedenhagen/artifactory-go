@@ -10,13 +10,23 @@
     </head>
     <body>
         <div id="hd">
+            <a href="/">
             <div id="logo">
                 <img src="logo.png" width="50px" height="50px" alt="Wicket Logo" />
                 <h1>Artifactory GO Search Results</h1>
             </div>
+            </a>
         </div>
         <div id="bd">
             <p><span wicket:id="gav">gav</span></p>
+            <table class="dataview">
+                <tbody>
+                    <tr wicket:id="simple">
+                        <td><a wicket:id="id">TestId</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div wicket:id="navigator"></div>
         </div>
         <div id="ft">
             <p>Please mention the correct Wicket version: <wicket:container wicket:id="wicketVersion">1.5-SNAPSHOT</wicket:container>.</p>
