@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta name="buildnumber" content="${buildNumber}" />
         <meta name="" content="${timestamp}" />
-        <title>Artifactory GO</title>
+        <title>Artifactory GO Search Results</title>
 
         <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="Stylesheet" />
     </head>
@@ -12,18 +12,11 @@
         <div id="hd">
             <div id="logo">
                 <img src="logo.png" width="50px" height="50px" alt="Wicket Logo" />
-                <h1>Artifactory GO</h1>
+                <h1>Artifactory GO Search Results</h1>
             </div>
         </div>
         <div id="bd">
-            <form action="go" method="GET">
-                <table>
-                    <tr><th>groupId:</th><td><input wicket:id="groupId" name="groupId" autofocus value=""/></td></tr>
-                    <tr><th>artifactId:</th><td><input wicket:id="artifactId" name="artifactId" value=""/></td></tr>
-                    <tr><th>version:</th><td><input wicket:id="version" name="version" value=""/></td></tr>
-                    <tr><td colspan="2"><input type="submit"></td></tr>
-                </table>
-            </form>
+            <p><span wicket:id="gav">gav</span></p>
         </div>
         <div id="ft">
             <p>Please mention the correct Wicket version: <wicket:container wicket:id="wicketVersion">1.5-SNAPSHOT</wicket:container>.</p>

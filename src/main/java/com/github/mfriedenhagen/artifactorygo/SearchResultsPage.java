@@ -4,17 +4,19 @@ import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.WebPage;
-import org.apache.wicket.markup.html.form.TextField;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public class HomePage extends WebPage {
+public class SearchResultsPage extends WebPage {
 
+    private final static Logger LOG = LoggerFactory.getLogger(SearchResultsPage.class);
+    
     private static final long serialVersionUID = 1L;
 
-    public HomePage(final PageParameters parameters) {
+    public SearchResultsPage(final PageParameters parameters) {
         super(parameters);
-        add(new TextFieldWithValue("groupId", "myGroupId"));
-        add(new TextFieldWithValue("artifactId", "myArtifactId"));
-        add(new TextFieldWithValue("version", "myVersion"));
+        LOG.debug("Parameters {}", parameters);
+        add(new Label("gav"));
         add(new Label("wicketVersion", getApplication().getFrameworkSettings().getVersion()));
     }
 }

@@ -24,7 +24,6 @@ public class WicketApplication extends WebApplication {
     @Override
     public void init() {
         super.init();
-
-        // add your configuration here
+        mountPage("/go", SearchResultsPage.class);
     }
 }
