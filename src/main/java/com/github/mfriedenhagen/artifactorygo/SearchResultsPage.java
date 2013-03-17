@@ -10,7 +10,6 @@ import java.util.List;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.WebPage;
@@ -25,9 +24,10 @@ import org.slf4j.LoggerFactory;
 
 public class SearchResultsPage extends WebPage {
 
-    private final static Logger LOG = LoggerFactory.getLogger(SearchResultsPage.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SearchResultsPage.class);
     private static final long serialVersionUID = 1L;
-    private transient final HttpClient client = new DefaultHttpClient();
+    private static final int ITEMS_PER_PAGE = 10;
+    private final transient HttpClient client = new DefaultHttpClient();
 
     public SearchResultsPage(final PageParameters parameters) {
         super(parameters);
@@ -46,9 +46,9 @@ public class SearchResultsPage extends WebPage {
             throw new RuntimeException(e);
         }
         final List<URL> uris = new ArrayList<URL>();
-        final List<ArtifactoryStorage> results = searchResults.results;
+        final List<ArtifactoryStorage> results = searchResults.getResults();
         for (ArtifactoryStorage result : results) {
-            uris.add(result.downloadUri);
+            uris.add(result.getDownloadUri());
         }
         LOG.info("searchResults = {}" + results.size());
         add(new Label("gav", "Found " + results.size() + " artifacts for " + groupId + ":" + artifactId + ":" + version));
@@ -60,7 +60,7 @@ public class SearchResultsPage extends WebPage {
                 item.add(new ExternalLink("id", url.toString(), url.toString()));
             }
         };
-        dataView.setItemsPerPage(10);
+        dataView.setItemsPerPage(ITEMS_PER_PAGE);
         add(dataView);
         add(new PagingNavigator("navigator", dataView));
 

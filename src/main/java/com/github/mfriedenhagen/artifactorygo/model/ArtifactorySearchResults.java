@@ -23,5 +23,19 @@ import java.util.List;
  */
 public class ArtifactorySearchResults {
 
-    public List<ArtifactoryStorage> results;
+    private List<ArtifactoryStorage> results;
+
+    /**
+     * @return the results
+     */
+    public List<ArtifactoryStorage> getResults() {
+        return results;
+    }
+
+    /**
+     * @param results the results to set
+     */
+    void setResults(List<ArtifactoryStorage> results) {
+        this.results = results;
+    }
 }

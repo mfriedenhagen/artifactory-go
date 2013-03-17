@@ -19,7 +19,6 @@ import com.github.mfriedenhagen.artifactorygo.model.MD5;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonParseException;
 import java.lang.reflect.Type;
 
 /**
@@ -29,7 +28,7 @@ import java.lang.reflect.Type;
 public class MD5Deserializer implements JsonDeserializer<MD5> {
 
     @Override
-    public MD5 deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+    public MD5 deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) {
         return MD5.valueOf(json.getAsString());
     }
     

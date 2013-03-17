@@ -60,14 +60,14 @@ public class JsonResponseHandlerTest {
         when(mockedResponse.getEntity()).thenReturn(mockedEntity);
 
         final ArtifactorySearchResults searchResults = sut.handleResponse(mockedResponse);
-        final ArtifactoryStorage searchResult = searchResults.results.get(0);
+        final ArtifactoryStorage searchResult = searchResults.getResults().get(0);
 
-        assertEquals(4, searchResults.results.size());
+        assertEquals(4, searchResults.getResults().size());
         assertEquals(
                 "http://localhost:8081/artifactory/api/storage/repo1-cache/junit/junit/4.11/junit-4.11.pom",
-                searchResult.uri.toString());
+                searchResult.getUri().toString());
         assertEquals(
                 "http://localhost:8081/artifactory/repo1-cache/junit/junit/4.11/junit-4.11.pom",
-                searchResult.downloadUri.toString());
+                searchResult.getDownloadUri().toString());
     }
 }

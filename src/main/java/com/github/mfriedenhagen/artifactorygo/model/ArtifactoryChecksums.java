@@ -21,7 +21,35 @@ package com.github.mfriedenhagen.artifactorygo.model;
  */
 public class ArtifactoryChecksums {
 
-    public Sha1 sha1;
+    private Sha1 sha1;
     
-    public MD5 md5;
+    private MD5 md5;
+
+    /**
+     * @return the sha1
+     */
+    public Sha1 getSha1() {
+        return sha1;
+    }
+
+    /**
+     * @param sha1 the sha1 to set
+     */
+    void setSha1(Sha1 sha1) {
+        this.sha1 = sha1;
+    }
+
+    /**
+     * @return the md5
+     */
+    public MD5 getMd5() {
+        return md5;
+    }
+
+    /**
+     * @param md5 the md5 to set
+     */
+    void setMd5(MD5 md5) {
+        this.md5 = md5;
+    }
 }
